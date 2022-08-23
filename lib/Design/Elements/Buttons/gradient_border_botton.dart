@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-class BorderButton extends StatefulWidget {
+class GradientBorderButton extends StatefulWidget {
   final VoidCallback onTap;
   final String text;
-  const BorderButton({Key? key, required this.onTap, required this.text})
+  const GradientBorderButton({Key? key, required this.onTap, required this.text})
       : super(key: key);
 
   @override
-  State<BorderButton> createState() => _BorderButtonState();
+  State<GradientBorderButton> createState() => _GradientBorderButtonState();
 }
 
-class _BorderButtonState extends State<BorderButton> {
+class _GradientBorderButtonState extends State<GradientBorderButton> {
   @override
   Widget build(BuildContext context) {
     return InkWell(

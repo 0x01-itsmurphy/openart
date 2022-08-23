@@ -7,7 +7,10 @@ import 'package:openart/Design/Elements/Buttons/gradient_button.dart';
 import 'package:openart/Design/Elements/CustomContainers/details_outline_container.dart';
 import 'package:openart/Design/Elements/CustomContainers/normal_container.dart';
 import 'package:openart/Design/Elements/CustomContainers/texts_in_row_containers.dart';
+import 'package:openart/Design/Elements/Widgets/footer.dart';
 import 'package:openart/Design/Screens/HomeScreen/Widgets/header.widget.dart';
+import 'package:openart/Design/Screens/HomeScreen/Widgets/hot_bid_box.dart';
+import 'package:openart/Design/Screens/HomeScreen/Widgets/hot_collection_box.dart';
 import 'package:openart/Design/Screens/HomeScreen/Widgets/item_card_widget.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -58,22 +61,47 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     Container(
+                      height: 50,
                       decoration: BoxDecoration(
-                          color: AppColors.inputBackgroundGreyLight,
-                          borderRadius: BorderRadius.circular(10)),
-                      child: TextFormField(
-                        decoration: const InputDecoration(
-                            hintText: AppString.homeSearchBoxHintText,
-                            prefixIcon:
-                                Icon(Icons.search, color: AppColors.bodyBlack),
-                            suffixIcon:
-                                Icon(Icons.mic, color: AppColors.bodyBlack),
-                            isDense: false,
-                            focusedBorder: InputBorder.none),
+                        color: AppColors.inputBackgroundGreyLight,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      alignment: Alignment.center,
+                      child: Padding(
+                        padding: const EdgeInsets.all(2),
+                        child: TextFormField(
+                          decoration: const InputDecoration(
+                              hintText: AppString.homeSearchBoxHintText,
+                              prefixIcon: Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Icon(
+                                  Icons.search,
+                                  color: AppColors.bodyBlack,
+                                ),
+                              ),
+                              prefixIconConstraints: BoxConstraints(
+                                minWidth: 5,
+                                minHeight: 5,
+                              ),
+                              suffixIcon: Padding(
+                                padding: EdgeInsets.all(8.0),
+                                child: Icon(
+                                  Icons.mic,
+                                  color: AppColors.bodyBlack,
+                                ),
+                              ),
+                              suffixIconConstraints: BoxConstraints(
+                                minWidth: 5,
+                                minHeight: 5,
+                              ),
+                              isDense: true,
+                              border: InputBorder.none,
+                              focusedBorder: InputBorder.none),
+                        ),
                       ),
                     ),
                     const ItemCardWidget(),
-                    TextsInRow(),
+                    const TextsInRow(),
                     GradientButton(
                       onTap: () {},
                       text: 'Place a bid',
@@ -81,17 +109,42 @@ class _HomeScreenState extends State<HomeScreen> {
                     const SizedBox(
                       height: 20,
                     ),
-                    BorderButton(
+                    GradientBorderButton(
                       onTap: () {},
                       text: "View artwork",
                     ),
                     const ItemCardWidget(),
                     const NormalContainer(),
                     const ItemCardWidget(),
-                    const DetailsOutlineContainer()
+                    const DetailsOutlineContainer(),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    const HotBidBox(),
+                    const SizedBox(
+                      height: 40,
+                    ),
+                    const HotCollectionBox(),
+                    const SizedBox(
+                      height: 40,
+                    ),
+                    GradientBorderButton(
+                      onTap: () {},
+                      text: "View more collection",
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    const Divider(
+                      thickness: 2,
+                    ),
                   ],
                 ),
               ),
+              const SizedBox(
+                height: 50,
+              ),
+              const Footer()
             ],
           ),
         ),
